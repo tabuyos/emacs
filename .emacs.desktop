@@ -1,0 +1,43 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Dec 22 22:46:19 2019
+;; Desktop file format version 208
+;; Emacs version 26.3
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (24063 33211 929888 0) (desktop . "208") "Tabuyos@Tabuyos" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font-backend uniscribe gdi) (font . "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#f8f8f2") (background-color . "#282a36") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 0) (tool-bar-lines . 0) (height . 36) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ccccc7") (environment) (frameset--id . "5FF4-674C-D23E-7E2F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top) (width . 80) (left . 1144) (top . 138)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 57) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 736) (pixel-height . 665) (total-width . 81) (total-height . 35) (normal-height . 1.0) (normal-width . 1.0) (buffer "BookMark.java" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 67) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "c:/Users/Tabuyos/Desktop/bookmark/AutoImport/BookMark.java"
+  "BookMark.java"
+  'java-mode
+  '(abbrev-mode TeX-PDF-mode)
+  67
+  '(67 nil)
+  nil
+  nil
+  '((buffer-display-time 24063 33100 348659 0) (buffer-file-coding-system . chinese-iso-8bit-dos))
+  '((mark-ring (67 67 1 70 67 67 67 67 67))))
+
+(desktop-create-buffer 208
+  "c:/Users/Tabuyos/Desktop/bookmark/Bookmark.tabuyos"
+  "Bookmark.tabuyos"
+  'fundamental-mode
+  '(TeX-PDF-mode)
+  250
+  '(639 nil)
+  nil
+  nil
+  '((buffer-display-time 24063 33100 347493 0) (buffer-file-coding-system . utf-8-with-signature-dos))
+  '((mark-ring (633 576 633 639 250))))
+
