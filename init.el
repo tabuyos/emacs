@@ -28,10 +28,18 @@
 (setq set-fill-column 100) ;; Setting max column.
 
 (set-keyboard-coding-system 'utf-8) ;; Setting keyboard coding.
+(set-selection-coding-system 'utf-8) ;; Setting keyboard coding.
 (set-buffer-file-coding-system 'utf-8) ;; Setting buffer file coding.
+(set-default buffer-file-coding-system 'utf-8) ;; Setting buffer file coding.
+(set-default-coding-systems 'utf-8) ;; Setting buffer file coding.
 (prefer-coding-system 'utf-8) ;; Setting default coding.
+(set-clipboard-coding-system 'utf-8) ;; Setting clipboard coding.
+(set-terminal-coding-system 'utf-8) ;; Setting terminal coding.
+(setq-default pathname-coding-system 'utf-8) ;; Setting filepath coding.
+(set-file-name-coding-system 'utf-8) ;; Setting filename coding.
 (setq default-buffer-file-coding-system 'utf-8-unix) ;; Setting default buffer file coding.
-(set-language-environment 'utf-8) ;; Setting environment coding.
+; (set-language-environment 'utf-8) ;; Setting environment coding.
+(set-language-environment 'Chinese-GB) ;; Setting environment coding.
 
 (show-paren-mode t) ;; Enable highlight paren.
 (electric-pair-mode t) ;; Enable autopair paren.
