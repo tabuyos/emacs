@@ -16,4 +16,6 @@ elpa/
 packages/*/.git/
 packages/*/.github/
 etc/
+.emacs.desktop
+.emacs.desktop.lock
 !.gitignore
