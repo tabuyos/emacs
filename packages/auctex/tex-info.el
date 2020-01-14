@@ -1,7 +1,7 @@
 ;;; tex-info.el --- Support for editing Texinfo source.
 
 ;; Copyright (C) 1993, 1994, 1997, 2000, 2001, 2004, 2005, 2006,
-;;               2011-2015, 2017, 2018  Free Software Foundation, Inc.
+;;               2011-2015, 2017-2019  Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Keywords: tex
@@ -664,6 +664,8 @@ value of `Texinfo-mode-hook'."
 
   (set (make-local-variable 'font-lock-defaults)
        '(texinfo-font-lock-keywords nil nil nil backward-paragraph))
+  (set (make-local-variable 'syntax-propertize-function)
+       texinfo-syntax-propertize-function)
 
   ;; Outline settings.
   (set (make-local-variable 'outline-regexp)
@@ -702,8 +704,8 @@ value of `Texinfo-mode-hook'."
 
   (when (and (boundp 'add-log-current-defun-function)
 	     (fboundp 'texinfo-current-defun-name))
-    (setq add-log-current-defun-function
-	  #'texinfo-current-defun-name))
+    (set (make-local-variable 'add-log-current-defun-function)
+	 #'texinfo-current-defun-name))
 
   (TeX-add-symbols
    '("acronym" "Acronym")
