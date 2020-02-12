@@ -13,9 +13,13 @@
 auto-save-list/
 server/
 elpa/
+.cache/
+eclipse.jdt.ls/
 packages/*/.git/
 packages/*/.github/
 etc/
 .emacs.desktop
 .emacs.desktop.lock
+.dap-breakpoints
+.lsp-session-v1
 !.gitignore

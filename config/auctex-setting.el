@@ -21,17 +21,18 @@
 (setq TeX-view-program-list 
  '(("Sumatra PDF" ("\"E:/opt/SumatraPDF/SumatraPDF.exe\" -reuse-instance" (mode-io-correlate " -forward-search %b %n ") " %o")))) 
 
-;; 打开TeX文件时应该加载的mode执行的命令
+;; Setting autoload mode when open tex file.
 (defun my-latex-hook ()
   "Hooks my cdlatex."
-  (turn-on-cdlatex) ;; 加载cdlatex
-  (outline-minor-mode) ;; 加载outline mode
-  (turn-on-reftex)  ;; 加载reftex
-  (auto-fill-mode)  ;; 加载自动换行
-  (flyspell-mode)   ;; 加载拼写检查 (需要安装aspell)
-  (TeX-fold-mode t) ;; 加载TeX fold mode
-  (outline-hide-body) ;; 打开文件时只显示章节标题
-  (assq-delete-all (quote output-pdf) TeX-view-program-selection)    ;; 以下两行是正向搜索相关设置
+  (turn-on-cdlatex) ;; Load cdlatex.
+  (outline-minor-mode) ;; Load outline mode.
+  (turn-on-reftex)  ;; Load reftex.
+  (auto-fill-mode)  ;; Enable autowrap.
+  (electric-pair-mode t) ;; Enable autopair.
+  (flyspell-mode)   ;; Load spell check (require aspell).
+  (TeX-fold-mode t) ;; Load TeX fold mode.
+  (outline-hide-body) ;; Enable auto hide when startup.
+  (assq-delete-all (quote output-pdf) TeX-view-program-selection)    ;; Setting forward search.
   (add-to-list 'TeX-view-program-selection '(output-pdf "Sumatra PDF"))
   (local-set-key [(control j)] 'my-newline) ;; Setting Ctrl+j for my-newline.
   )

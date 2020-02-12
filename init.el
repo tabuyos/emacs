@@ -34,12 +34,12 @@
 ; (set-default-coding-systems 'utf-8) ;; Setting buffer file coding.
 (prefer-coding-system 'utf-8) ;; Setting default coding.
 ; (set-clipboard-coding-system 'utf-8) ;; Setting clipboard coding.
-; (set-terminal-coding-system 'utf-8) ;; Setting terminal coding.
+(set-terminal-coding-system 'utf-8) ;; Setting terminal coding.
 ; (setq-default pathname-coding-system 'utf-8) ;; Setting filepath coding.
 ; (set-file-name-coding-system 'utf-8) ;; Setting filename coding.
 (setq default-buffer-file-coding-system 'utf-8-unix) ;; Setting default buffer file coding.
-; (set-language-environment 'utf-8) ;; Setting environment coding.
-(set-language-environment 'Chinese-GB) ;; Setting environment coding.
+(set-language-environment 'utf-8) ;; Setting environment coding.
+; (set-language-environment 'Chinese-GB) ;; Setting environment coding.
 
 (show-paren-mode t) ;; Enable highlight paren.
 (electric-pair-mode t) ;; Enable autopair paren.
@@ -57,7 +57,7 @@
 (defun my-newline ()
   (interactive)
   (move-end-of-line 1)
-  (electric-newline-and-maybe-indent))
+  (newline-and-indent))
 (defun my-delete-line ()
   (interactive)
   (kill-whole-line))
@@ -71,4 +71,19 @@
 (require 'slime-setting) ;; Use slime for Lisp in Emacs.
 (require 'auctex-setting) ;; Use AucTeX mode in Emacs.
 (require 'org-setting) ;; Setting Org-mode in Emacs.
+(require 'my-setting) ;; Setting customize in Emacs.
 ;; (require 'minimap-setting) ;; Use Minimap in Emacs
+(require 'lsp-java-setting) ;; Use lsp of java.
+(require 'awesome-pair-setting) ;; Use autopair paren.
+; (custom-set-variables
+;  ;; custom-set-variables was added by Custom.
+;  ;; If you edit it by hand, you could mess it up, so be careful.
+;  ;; Your init file should contain only one such instance.
+;  ;; If there is more than one, they won't work right.
+;  '(package-selected-packages (quote (lsp-java))))
+; (custom-set-faces
+;  ;; custom-set-faces was added by Custom.
+;  ;; If you edit it by hand, you could mess it up, so be careful.
+;  ;; Your init file should contain only one such instance.
+;  ;; If there is more than one, they won't work right.
+;  )
