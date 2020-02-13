@@ -22,9 +22,9 @@
 	(interactive "p")
 	(shift-text (- count)))
 
-;; set transparent effect
+;; Setting transparent effect.
 (global-set-key [(C-f11)] 'loop-alpha)
-(setq alpha-list '((100 100) (95 65) (85 55) (75 45) (65 35)))
+(setq alpha-list '((100 100) (95 65) (85 55) (75 45) (65 35) (55 25) (45 15) (35 10)))
 (defun loop-alpha ()
 	(interactive)
 	(let ((h (car alpha-list)))                ;; head value will set to
@@ -36,7 +36,7 @@
 		)
 	)
 
-;; comment block
+;; Setting comment block.
 (defun qiang-comment-dwim-line (&optional arg)
 	(interactive "*P")
 	(comment-normalize-vars)
@@ -45,7 +45,7 @@
 		(comment-dwim arg)))
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
 
-;; C-w cut line M-w copy line
+;; Use C-w to cut line and M-w to copy line.
 (defadvice kill-ring-save (before slickcopy activate compile)  
 	(interactive  
 		(if mark-active (list (region-beginning) (region-end))  
@@ -60,5 +60,19 @@
 ;; Use M-0 M-1 ... M-9 move window.
 (require 'window-numbering)
 (window-numbering-mode 1)
+
+;; Use C-j to generate new line.
+(defun my-newline ()
+	(interactive)
+	(move-end-of-line 1)
+	(newline-and-indent))
+;; Similar to C-w
+(defun my-delete-line ()
+	(interactive)
+	(kill-whole-line))
+
+(global-set-key [(control j)] 'my-newline) ;; Setting Ctrl+j for my-newline.
+;; (define-key key-translation-map (kbd "C-j") (key-binding (kbd "C-e C-j"))) ;; NOT WORK! IDK.
+(global-set-key (kbd "TAB") 'up-list) ;; Setting TAB to jump outside bracket.
 
 (provide 'my-setting)
