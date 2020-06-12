@@ -26,4 +26,4 @@
      (define-key web-mode-map (kbd "C-c C-v") 'browse-url-of-file)))
   ;;'web-mode-keybinding-settings)
 
-(provide 'web-settings)
+(provide 'web-setting)

@@ -60,6 +60,7 @@
 (require 'slime-setting) ;; Use slime for Lisp in Emacs.
 (require 'auctex-setting) ;; Use AucTeX mode in Emacs.
 (require 'org-setting) ;; Setting Org-mode in Emacs.
+(require 'web-setting) ;; Setting Web-mode in Emacs.
 (require 'my-setting) ;; Setting customize in Emacs.
 ;; (require 'minimap-setting) ;; Use Minimap in Emacs
 (require 'lsp-java-setting) ;; Use lsp of java.
