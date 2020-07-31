@@ -1,0 +1,26 @@
+ls
+a
+clang factor.exe -o fff
+exit
+cd ..
+git status
+git pull
+exit
+cd ..
+git add .
+git commit -m "8.3"
+exit
+git add .
+git commit -m ""
+git commit -m "Add TGithub project"
+git push --help
+git push
+whereis git
+cd ..
+cd clisp/
+git status
+git add .
+git commit -m "modified onlisp.lisp"
+git pull
+git push
+exit

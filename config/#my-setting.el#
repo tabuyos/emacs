@@ -83,6 +83,6 @@
 
 (global-set-key (kbd "TAB") 'up-list) ;; Setting TAB to jump outside bracket.
 
-(global-set-key [(control \;)] 'ace-jump-mode)
+(global-set-key [(control \;)] 'ace-jump-char-mode)
 
 (provide 'my-setting)

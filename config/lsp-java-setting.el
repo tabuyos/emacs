@@ -22,7 +22,7 @@
   :custom
   (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
   (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))
-  (lsp-java-jdt-download-url "file:///D:/Home/jdt-language-server-0.49.1-201912231657.tar.gz"))
+  (lsp-java-jdt-download-url "file:///D:/Home/jdt-language-server-0.53.0-202003231021.tar.gz"))
 
 (use-package dap-mode
   :ensure t :after lsp-mode

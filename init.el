@@ -47,7 +47,7 @@
 ;; (global-linum-mode t) ;; Enable line number mode. ;; Emacs lastest version NOT contain.
 (global-display-line-numbers-mode t) ;; Enable line number mode.
 (setq make-backup-files nil) ;; Disable backup file.
-(set-default-font "Consolas 12") ;; English font.
+(set-default-font "Consolas 10") ;; English font.
 (set-fontset-font "fontset-default" 'han '("楷体" . "unicode-bmp")) ;; Chinese font.
 (set-fontset-font "fontset-default" 'symbol '("Cambria Math" . "unicode-bmp")) ;; Math symbol font.
 
@@ -60,6 +60,7 @@
 (require 'slime-setting) ;; Use slime for Lisp in Emacs.
 (require 'auctex-setting) ;; Use AucTeX mode in Emacs.
 (require 'org-setting) ;; Setting Org-mode in Emacs.
+(require 'web-setting) ;; Setting Web-mode in Emacs.
 (require 'my-setting) ;; Setting customize in Emacs.
 ;; (require 'minimap-setting) ;; Use Minimap in Emacs
 (require 'lsp-java-setting) ;; Use lsp of java.
