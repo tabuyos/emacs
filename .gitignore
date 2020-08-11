@@ -13,7 +13,7 @@
 auto-save-list/
 server/
 elpa/
-ehsell/
+eshell/
 .cache/
 eclipse.jdt.ls/
 packages/*/.git/
