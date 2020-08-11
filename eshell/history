@@ -24,3 +24,22 @@ git commit -m "modified onlisp.lisp"
 git pull
 git push
 exit
+cd ..
+git status
+git add .
+ls -al
+git pull --rebase
+git add .
+git commit -m "read chapter 9"
+git pull --rebase
+git reflog --graph
+git push
+whereis ssh
+clear
+clear
+ping centos
+clear
+ssh tabuyos@centos
+ssh tabuyos@centos
+ssh tabuyos@CentOS
+exit
