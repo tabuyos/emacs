@@ -63,7 +63,9 @@
 (require 'web-setting) ;; Setting Web-mode in Emacs.
 (require 'my-setting) ;; Setting customize in Emacs.
 ;; (require 'minimap-setting) ;; Use Minimap in Emacs
-(require 'lsp-java-setting) ;; Use lsp of java.
+;; (require 'lsp-java-setting) ;; Use lsp of java.
 (require 'awesome-pair-setting) ;; Use autopair paren.
 (require 'indent-setting) ;; Use indent hint line in Emacs.
+;; (require 'typescript-setting) ;; Use tide(Typescript Interactive Davelopment Environment for Emacs) in Emacs.
+(require 'python-setting) ;; Use elpy(Python Interactive Davelopment Environment for Emacs) in Emacs.
 
