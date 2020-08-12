@@ -75,6 +75,13 @@
 	(interactive)
 	(revert-buffer t (not (buffer-modified-p)) t))
 
+(defun sudo-edit-current-file ()
+	(interactive)
+	(when (buffer-file-name)
+		(let ((old-point (point)))
+			(find-file (concat "/sudo:root@localhost:" (buffer-file-name)))
+			(goto-char old-point))))
+
 ;; Setting Ctrl+f5 for refresh-file
 (global-set-key [(control f5)] 'refresh-file)
 
