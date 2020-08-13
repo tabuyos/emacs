@@ -17,6 +17,7 @@ eshell/
 .cache/
 snippets/
 elpy/
+transient/
 eclipse.jdt.ls/
 packages/*/.git/
 packages/*/.github/
