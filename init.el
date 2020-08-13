@@ -68,4 +68,5 @@
 (require 'indent-setting) ;; Use indent hint line in Emacs.
 ;; (require 'typescript-setting) ;; Use tide(Typescript Interactive Davelopment Environment for Emacs) in Emacs.
 (require 'python-setting) ;; Use elpy(Python Interactive Davelopment Environment for Emacs) in Emacs.
+(require 'magit-setting) ;; Use Magit in Emacs.
 
