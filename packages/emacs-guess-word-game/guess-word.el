@@ -62,6 +62,9 @@
   "Guess word definement face"
   :group 'guess-word)
 
+(defun oddp (number)
+  (not (= (mod number 2) 0)))
+
 (defun random-word-map-string (fn str)
   "Map STR with index to FN."
   (let ((index 0))
@@ -228,6 +231,6 @@
   (let ((item (completing-read "" guess-word-dictionarys)))
     (setq guess-word-dictionarys (remove item guess-word-dictionarys ) )))
 
-(provide 'guess-word-mode)
+(provide 'guess-word)
 
 ;;; guess-word.el ends here
