@@ -1,2 +1,2 @@
 # emacs
-Tabuyos‘ configuration file of Emacs.
+Tabuyos‘ configuration file of Emacs 26.+.
