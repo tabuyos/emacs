@@ -1,0 +1,30 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
+
+auto-save-list/
+server/
+elpa/
+eshell/
+.cache/
+snippets/
+elpy/
+transient/
+eclipse.jdt.ls/
+packages
+packages/*/.git/
+packages/*/.github/
+etc/
+.emacs.desktop
+.emacs.desktop.lock
+.dap-breakpoints
+.lsp-session-v1
+!.gitignore
