@@ -7,7 +7,8 @@
 (defvar package-archives nil)
 
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory)
-      package-archives '(("gnu-tsinghua" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+      package-archives
+      '(("gnu-tsinghua" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("melpa-tsinghua" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("melpa-stable-tshinghua" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
         ("org-tsinghua" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
@@ -62,7 +63,7 @@
 ;; -PackageAutoUpdate
 
 ;; DimPac
-(use-package 'diminish)
+(use-package diminish)
 ;; -DimPac
 
 (provide 'init-package)

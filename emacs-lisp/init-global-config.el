@@ -58,7 +58,7 @@ The original function deletes trailing whitespace of the current line."
           (delete-trailing-whitespace)
           (widen))))))
 
-(defun smart-delete-trainling-whitespace ()
+(defun smart-delete-trailing-whitespace ()
   "Invoke `delete-trailing-whitespace-except-current-line' on selected major modes only."
   (unless (member major-mode '(diff-mode))
     (delete-trailing-whitespace-except-current-line)))
@@ -142,5 +142,5 @@ The original function deletes trailing whitespace of the current line."
 (add-to-list 'auto-mode-alist '("\\.out\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.args\\'" . text-mode))
 
-(provide 'init-globel-config)
+(provide 'init-global-config)
 ;;; init-global-config.el ends here
