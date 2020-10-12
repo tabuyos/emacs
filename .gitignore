@@ -23,8 +23,13 @@ packages
 packages/*/.git/
 packages/*/.github/
 etc/
+early-init-do-not-edit/
 .emacs.desktop
 .emacs.desktop.lock
 .dap-breakpoints
 .lsp-session-v1
+.last-package-update-day
+custom-set-variables.el
+places
+recentf
 !.gitignore
