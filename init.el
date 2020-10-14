@@ -71,9 +71,21 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-global-config)
 
+(require 'init-practical-tool)
+
+(require 'init-edit)
+
 (require 'init-function)
 
 (require 'init-theme)
+
+(require 'init-fonts)
+
+(require 'init-treemacs)
+
+(require 'init-window-numbering)
+
+(require 'init-awesome-pair)
 
 ; Programming
 (require 'init-latex)
