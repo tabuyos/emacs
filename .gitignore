@@ -22,7 +22,6 @@ eclipse.jdt.ls/
 packages
 packages/*/.git/
 packages/*/.github/
-site-elisp/
 etc/
 early-init-do-not-edit/
 .emacs.desktop

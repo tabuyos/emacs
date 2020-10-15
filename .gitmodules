@@ -1,6 +1,6 @@
 [submodule "site-elisp/window-numbering.el"]
-    path = site-elisp/window-numbering.el
-    url = https://github.com/nschum/window-numbering.el.git
+	path = site-elisp/window-numbering.el
+	url = https://github.com/nschum/window-numbering.el.git
 [submodule "site-elisp/awesome-pair"]
-    path = site-elisp/awesome-pair
-    url = https://github.com/manateelazycat/awesome-pair.git
+	path = site-elisp/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git
