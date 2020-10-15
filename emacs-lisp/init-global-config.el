@@ -49,7 +49,7 @@
   "An alternative to `delete-trailing-whitespace'.
 The original function deletes trailing whitespace of the current line."
   (interactive)
-  (let ((begin (line-beinning-position))
+  (let ((begin (line-beginning-position))
         (end (line-end-position)))
     (save-excursion
       (when (< (point-min) (1- begin))

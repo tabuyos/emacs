@@ -1,3 +1,4 @@
+(line-end-position)
 ;;; package --- tabuyos-init --- init-edit.el
 ;;; Commentary:
 ;; This is initial configuration for edit.
@@ -41,7 +42,7 @@
   (interactive
    (if mark-active
        (list (region-beginning) (region-end))
-     (list (line-beginning-position) (line-end-position))))
+     (list (current-line-non-whitespace-begin-position) (current-line-non-whitespace-end-position))))
   (apply fn args))
 
 (defun kill-region@around (fn &rest args)
@@ -51,6 +52,8 @@
      (list (line-beginning-position) (line-end-position))))
   (apply fn args))
 
+;; Delete line and don't add string into kill-ring.
+;; (delete-region (line-beginning-position) (line-beginning-position 2))
 
 ;; Add around advice for copy or cut
 (advice-add 'kill-ring-save :around #'kill-ring-save@around)
@@ -62,6 +65,46 @@
 ;; -CutAndCopy
 
 ;; OpLine-
+(defun is-normal-string (str)
+  "Determine whether the current character is a normal string."
+  (or (null str) (equal "" str) (equal " " str) (equal "\n" str) (equal "\t" str)))
+
+(defun get-one-char (position &optional is-negative)
+  "Get one char by position."
+  (let ((forward (1+ position)) (backward (1- position)))
+    (if is-negative
+	(if (> position 0)
+	    (buffer-substring-no-properties backward position)
+	  nil)
+      (if (> position 0)
+	    (buffer-substring-no-properties position forward)
+	  nil))))
+
+(defun current-line-non-whitespace-position (&optional reverse)
+  "Get begin or end position of current line with non-whitespace."
+  (let ((begin (line-beginning-position)) (end (line-end-position)) (loop t) po)
+    (while (and loop (< begin end))
+      (if reverse
+	  (if (is-normal-string (get-one-char end reverse))
+	      (setq loop nil)
+	    (decf end))	
+	(if (is-normal-string (get-one-char begin reverse))
+	    (setq loop nil)
+	  (incf begin))
+	(setq postion begin)))
+    (if loop
+	(line-beginning-position)
+      (if reverse
+	  end
+	begin))))
+
+(defun current-line-non-whitespace-begin-position ()
+  "Get begin position of current line with non-whitespace."
+  (current-line-non-whitespace-position nil))
+
+(defun current-line-non-whitespace-end-position ()
+  "Get end position of current line with non-whitespace."
+  (current-line-non-whitespace-position t))
 (defun gen-new-line-in-below ()
   (interactive)
   (move-end-of-line 1)
@@ -70,6 +113,7 @@
 (defun des-current-line ()
   (interactive)
   (kill-whole-line))
+
 ;; Define keymap for some line function
 (global-set-key [(control j)] #'gen-new-line-in-below)
 ; (global-set-key [(tab)] #'up-list)
@@ -86,6 +130,43 @@
     (let ((old-point (point)))
       (file-file (concat "/sudo:root@localhost:" (buffer-file-name)))
       (goto-char old-point))))
+
+(defvar *unshifted-special-chars-layout*
+  '(("1" "!")
+    ("2" "@")
+    ("3" "#")
+    ("4" "$")
+    ("5" "%")
+    ("6" "^")
+    ("7" "&")
+    ("8" "*")
+    ("9" "(")
+    ("0" ")")
+    ("!" "1")
+    ("@" "2")
+    ("#" "3")
+    ("$" "4")
+    ("%" "5")
+    ("^" "6")
+    ("&" "7")
+    ("*" "8")
+    ("(" "9")
+    (")" "0")))
+
+(defun mb-str-to-unibyte-char (str)
+  "Translate first multibyte char in s to internal unibyte representation."
+  (multibyte-char-to-unibyte (string-to-char str)))
+
+(defun remap-keyboard (mapping)
+  "Setup keyboard translate table using a list of pairwise key-mappings."
+  (mapcar
+   (lambda (mb-string-pair)
+     (apply #'keyboard-translate
+            (mapcar #'mb-str-to-unibyte-char mb-string-pair)))
+   mapping))
+
+(remap-keyboard *unshifted-special-chars-layout*)
+
 ;; Define keymap for some file function
 (global-set-key [(control f5)] #'refresh-current-file)
 ;; -OpFile
@@ -97,24 +178,13 @@
 ;; -AceJump
 
 ;; UserProfile-
+;; close backup file.
 (setq make-backup-files nil)
+;; open line number mode.
+(linum-mode)
+;; open column number mode.
+(column-number-mode)
 ;; -UserProfile
-
-
-;; (defun test-back-to-indentation ()
-;;   "Move point to the first non-whitespace character on this line."
-;;   (interactive "^")
-;;   (beginning-of-line 1)
-;;   (skip-syntax-forward " " (line-end-position))
-;;   ;; Move back over chars that have whitespace syntax but have the p flag.
-;;   (backward-prefix-chars))
-
-;;    (skip-chars-forward " ") (beginning-of-line)
-(defun my-skip ()
-  (beginning-of-line)
-  (let ((ps (skip-chars-forward " " (line-end-position))))
-    (print ps)))
-     (my-skip)
 
 (provide 'init-edit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
