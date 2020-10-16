@@ -77,6 +77,10 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-function)
 
+(require 'init-yasnippet)
+
+(require 'init-company)
+
 (require 'init-theme)
 
 (require 'init-fonts)
@@ -93,6 +97,9 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-cc)
 
 (require 'init-haskell)
+
+;; Set startup options after loading all configurations
+(require 'init-startup)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

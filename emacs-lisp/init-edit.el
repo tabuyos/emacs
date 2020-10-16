@@ -87,7 +87,7 @@
       (if reverse
 	  (if (is-normal-string (get-one-char end reverse))
 	      (setq loop nil)
-	    (decf end))	
+	    (decf end))
 	(if (is-normal-string (get-one-char begin reverse))
 	    (setq loop nil)
 	  (incf begin))
@@ -171,6 +171,13 @@
 (global-set-key [(control f5)] #'refresh-current-file)
 ;; -OpFile
 
+;; ;; PanguSpacing-
+;; (use-package pangu-spacing
+;;   :defer t
+;;   :config
+;;   (global-pangu-spacing-mode))
+;; ;; -PanguSpacing
+
 ;; AceJump-
 (use-package ace-jump-mode
   :ensure t
@@ -180,8 +187,10 @@
 ;; UserProfile-
 ;; close backup file.
 (setq make-backup-files nil)
+;; open global display line number mode
+(global-display-line-numbers-mode)
 ;; open line number mode.
-(linum-mode)
+(line-number-mode)
 ;; open column number mode.
 (column-number-mode)
 ;; -UserProfile

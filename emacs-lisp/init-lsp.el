@@ -30,6 +30,7 @@
 ;; LSPUI-
 (use-package lsp-ui
   :after lsp-mode
+  :diminish
   :commands lsp-ui-mode
   :custom-face
   (lsp-ui-doc-background ((t (:background nil))))
@@ -59,6 +60,7 @@
 
 ;; DAPMode-
 (use-package dap-mode
+  :diminish
   :bind
   (:map dap-mode-map
 	(("<f12>" . dap-debug)
