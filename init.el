@@ -98,6 +98,8 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-haskell)
 
+(require 'init-slime)
+
 ;; Set startup options after loading all configurations
 (require 'init-startup)
 

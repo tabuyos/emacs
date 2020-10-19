@@ -67,7 +67,7 @@
 ;; OpLine-
 (defun is-normal-string (str)
   "Determine whether the current character is a normal string."
-  (or (null str) (equal "" str) (equal " " str) (equal "\n" str) (equal "\t" str)))
+  (not (or (null str) (equal "" str) (equal " " str) (equal "\n" str) (equal "\t" str))))
 
 (defun get-one-char (position &optional is-negative)
   "Get one char by position."
@@ -93,7 +93,9 @@
 	  (incf begin))
 	(setq postion begin)))
     (if loop
-	(line-beginning-position)
+	(if reverse
+	    (line-beginning-position)
+	  (line-end-position))
       (if reverse
 	  end
 	begin))))
@@ -105,6 +107,7 @@
 (defun current-line-non-whitespace-end-position ()
   "Get end position of current line with non-whitespace."
   (current-line-non-whitespace-position t))
+
 (defun gen-new-line-in-below ()
   (interactive)
   (move-end-of-line 1)
@@ -183,6 +186,14 @@
   :ensure t
   :bind (("C-;" . ace-jump-mode)))
 ;; -AceJump
+
+;; MoveText-
+(use-package move-text
+  :ensure t
+  :bind
+  (("C-c p" . move-text-up)
+   ("C-c n" . move-text-down)))
+;; -MoveText
 
 ;; UserProfile-
 ;; close backup file.

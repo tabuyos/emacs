@@ -15,6 +15,8 @@
        (add-to-list 'default-frame-alist (cons 'alpha (list active inactive))))
      (car cell) (cdr cell))
     (setq alpha-list (cdr (append alpha-list (list cell))))))
+
+(global-set-key (kbd "C-<f11>") #'loop-alpha)
 ;; -Transparent
 
 (provide 'init-practical-tool)

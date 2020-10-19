@@ -24,7 +24,7 @@
     web-mode
     c-mode
     c++-mode
-    objc-mode) .lsp))
+    objc-mode) . lsp))
 ;; -LSPMode
 
 ;; LSPUI-
