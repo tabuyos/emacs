@@ -91,7 +91,11 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-awesome-pair)
 
-; Programming
+(require 'init-flycheck)
+
+(require 'init-discover-my-major)
+
+;; Programming
 (require 'init-latex)
 
 (require 'init-cc)
@@ -99,6 +103,9 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-haskell)
 
 (require 'init-slime)
+
+;; Git
+(require 'init-magit)
 
 ;; Set startup options after loading all configurations
 (require 'init-startup)

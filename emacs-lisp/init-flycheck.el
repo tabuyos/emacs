@@ -35,6 +35,7 @@
   (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 ;; -FlyCheck
 
+
 (provide 'init-flycheck)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-flycheck.el ends here

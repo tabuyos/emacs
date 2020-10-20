@@ -10,6 +10,7 @@
 # Undo-tree save-files
 *.~undo-tree
 
+# Emacs Lisp
 auto-save-list/
 server/
 elpa/
@@ -20,8 +21,6 @@ elpy/
 transient/
 eclipse.jdt.ls/
 packages
-packages/*/.git/
-packages/*/.github/
 etc/
 early-init-do-not-edit/
 .emacs.desktop
@@ -32,4 +31,6 @@ early-init-do-not-edit/
 custom-set-variables.el
 places
 recentf
+
+# user customize ignore files
 !.gitignore

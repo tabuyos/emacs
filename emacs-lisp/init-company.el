@@ -47,6 +47,13 @@ If failed try to complete the common part with `company-complete-common'"
       (company-complete-common))))
 ;; -Company
 
+;; CompanyAUCTeX-
+(use-package company-auctex
+  :ensure auctex
+  :config
+  (company-auctex-init))
+;; -CompanAUCTeX
+
 (provide 'init-company)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-company.el ends here

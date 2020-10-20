@@ -9,6 +9,14 @@
   (require 'init-function))
 
 ;; AUCTeX-
+(use-package auctex
+  :defer t
+  :ensure t)
+
+(use-package cdlatex
+  :defer t
+  :ensure t)
+
 (use-package tex
   :ensure auctex
   :defer t
@@ -28,6 +36,7 @@
 
 (defun latex-custom-hook ()
   "`LaTeX-mode' for customization hook."
+  (turn-on-cdlatex)
   (turn-on-reftex)
   (setq reftex-plug-into-AUCTeX t)
   (reftex-isearch-minor-mode)
@@ -35,7 +44,8 @@
   (setq TeX-source-correlate-method 'synctex)
   (setq TeX-source-correlate-start-server t)
   (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run XeLaTeX"))
-  (setq TeX-command-default "XeLaTeX"))
+  (setq TeX-command-default "XeLaTeX")
+  (local-set-key [(control j)] #'gen-new-line-in-below))
 ;; -AUCTeX
 
 (provide 'init-latex)
