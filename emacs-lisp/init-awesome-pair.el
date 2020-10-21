@@ -31,9 +31,36 @@
 	 ("M-n" . awesome-pair-jump-left)
 	 ("M-:" . awesome-pair-jump-out-pair-and-newline)
 	 ))
-  :config (electric-pair-mode)
+  :config
+  (electric-pair-mode)
+  (show-paren-mode)
   :hook
-  ((prog-mode c-mode-common c-mode c++-mode java-mode haskell-mode emacs-lisp-mode lisp-interaction-mode lisp-mode maxima-mode ielm-mode sh-mode makefile-gmake-mode php-mode python-mode js-mode go-mode qml-mode jade-mode css-mode ruby-mode coffee-mode rust-mode qmake-mode lua-mode swift-mode minibuffer-inactive-mode) . awesome-pair-mode))
+  ((prog-mode
+    c-mode-common
+    c-mode c++-mode
+    java-mode
+    haskell-mode
+    emacs-lisp-mode
+    lisp-interaction-mode
+    lisp-mode
+    maxima-mode
+    ielm-mode
+    sh-mode
+    makefile-gmake-mode
+    php-mode
+    python-mode
+    js-mode
+    go-mode
+    qml-mode
+    jade-mode
+    css-mode
+    ruby-mode
+    coffee-mode
+    rust-mode
+    qmake-mode
+    lua-mode
+    swift-mode
+    minibuffer-inactive-mode) . awesome-pair-mode))
 ;; -AwesomePair
 
 ;; ;; HighlightParentheses-

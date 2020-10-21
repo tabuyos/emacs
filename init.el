@@ -95,6 +95,8 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-discover-my-major)
 
+(require 'init-eshell)
+
 ;; Programming
 (require 'init-latex)
 
@@ -103,6 +105,8 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-haskell)
 
 (require 'init-slime)
+
+(require 'init-markdown)
 
 ;; Git
 (require 'init-magit)

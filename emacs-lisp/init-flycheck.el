@@ -22,7 +22,7 @@
 	:custom
 	(flycheck-posframe-border-width 1)
 	(flycheck-posframe-inhibit-functions
-	 '((lambda (&rest _) (dound-and-true-p company-backend)))))
+	 '((lambda (&rest _) (bound-and-true-p company-backend)))))
     (use-package flycheck-pos-tip
       :defines flycheck-pos-tip-timeout
       :hook (flycheck-mode . flycheck-pos-tip-mode)

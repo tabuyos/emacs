@@ -29,6 +29,7 @@ early-init-do-not-edit/
 .lsp-session-v1
 .last-package-update-day
 custom-set-variables.el
+tramp
 places
 recentf
 

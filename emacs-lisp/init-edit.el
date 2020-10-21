@@ -1,4 +1,3 @@
-(line-end-position)
 ;;; package --- tabuyos-init --- init-edit.el
 ;;; Commentary:
 ;; This is initial configuration for edit.
@@ -7,7 +6,6 @@
 ;; MoveText-
 ;; Move some (select) text
 (defun shift-text (distance)
-  (print (use-region-p))
   (if (use-region-p)
       (let ((mark (mark)))
 	(save-excursion
@@ -18,8 +16,7 @@
 
 (defun shift-right (count)
   (interactive "p")
-  (print count)
-(shift-text count))
+  (shift-text count))
 
 (defun shift-left (count)
   (interactive "p")
@@ -77,8 +74,8 @@
 	    (buffer-substring-no-properties backward position)
 	  nil)
       (if (> position 0)
-	    (buffer-substring-no-properties position forward)
-	  nil))))
+	  (buffer-substring-no-properties position forward)
+	nil))))
 
 (defun current-line-non-whitespace-position (&optional reverse)
   "Get begin or end position of current line with non-whitespace."
@@ -119,7 +116,7 @@
 
 ;; Define keymap for some line function
 (global-set-key [(control j)] #'gen-new-line-in-below)
-; (global-set-key [(tab)] #'up-list)
+					; (global-set-key [(tab)] #'up-list)
 ;; -OpLine
 
 ;; OpFile-
