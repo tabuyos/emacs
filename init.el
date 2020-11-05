@@ -104,6 +104,8 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-haskell)
 
+(require 'init-clojure)
+
 (require 'init-slime)
 
 (require 'init-markdown)
