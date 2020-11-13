@@ -110,6 +110,8 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-markdown)
 
+(require 'init-docker)
+
 ;; Git
 (require 'init-magit)
 
