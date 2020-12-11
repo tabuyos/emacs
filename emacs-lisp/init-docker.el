@@ -7,6 +7,10 @@
 (use-package dockerfile-mode)
 ;; -Dockerfile
 
+;; DockerCompose-
+(use-package docker-compose-mode)
+;; -DockerCompose
+
 (provide 'init-docker)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-eshell.el ends here

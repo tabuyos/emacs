@@ -17,6 +17,14 @@
     (magit-log-buffer-file)))
 ;; -Magit
 
+;; Gitignore-
+(use-package gitignore-mode)
+;; -Gitignore
+
+;; Gitattributes-
+(use-package gitattributes-mode)
+;; -Gitattributes
+
 (provide 'init-magit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-magit.el ends here
