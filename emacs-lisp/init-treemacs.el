@@ -41,6 +41,7 @@
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode t)
+  (setq treemacs-sorting 'alphabetic-asc)
   :bind
   (("M-0"	. treemacs-select-window)
    ("C-x t 1"	. treemacs-delete-other-windows)
