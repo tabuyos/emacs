@@ -32,6 +32,7 @@
       (open-full-screen-size)
     (restore-default-screen-size)))
 
+(server-start)
 (open-full-screen-size)
 ;; -FullScreen
 

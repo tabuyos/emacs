@@ -24,9 +24,9 @@
   (TeX-auto-save t)
   (TeX-parse-self t)
   (TeX-master t)
-  (TeX-view-program-selection '((output-pdf "sumatra-pdf"))
+  (TeX-view-program-selection '((output-pdf "okular"))
                               TeX-source-correlate-start-server t)
-  (TeX-view-program-list '(("sumatra-pdf" ("SumatraPDF.exe -reuse-instance" (mode-io-correlate " -forward-search %b %n ") " %o")) ("pdf-tools" "TeX-pdf-tools-sync-view")))
+  (TeX-view-program-list '(("sumatra-pdf" ("SumatraPDF.exe -reuse-instance" (mode-io-correlate " -forward-search %b %n ") " %o")) ("pdf-tools" "TeX-pdf-tools-sync-view") ("okular" ("okular --unique %o#src:%n%a") "okular")))
   (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   :hook
   (LaTeX-mode . latex-custom-hook)
@@ -43,9 +43,16 @@
   (setq TeX-PDF-mode t)
   (setq TeX-source-correlate-method 'synctex)
   (setq TeX-source-correlate-start-server t)
-  (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run XeLaTeX"))
+  (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run XeLaTeX"))
   (setq TeX-command-default "XeLaTeX")
   (local-set-key [(control j)] #'gen-new-line-in-below))
+
+(defun tabuyos/get-pdf-reader ()
+  "Tabuyos for get some pdf reader."
+  (interactive)
+  (if (not *sys/linux*)
+      "Sumatra-pdf"
+    "Okular"))
 ;; -AUCTeX
 
 (provide 'init-latex)
