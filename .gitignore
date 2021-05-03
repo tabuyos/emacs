@@ -15,7 +15,9 @@ auto-save-list/
 server/
 elpa/
 eshell/
+url/
 .cache/
+.extension/
 snippets/
 elpy/
 transient/

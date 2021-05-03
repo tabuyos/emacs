@@ -98,9 +98,13 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-eshell)
 
 ;; Programming
+(require 'init-lsp)
+
 (require 'init-latex)
 
 (require 'init-cc)
+
+(require 'init-dart)
 
 (require 'init-haskell)
 
