@@ -41,7 +41,7 @@
     ;; check available font fo chinese
     (when (not available-chinese-font-list)
       (setq available-chinese-font-list (check-available-font chinese-font-list)))
-    
+
     (if (not available-english-font-list)
 	(message "No english fonts available, check your font was add into fonts' folder and try again.")
       (if (called-interactively-p 'interactive)
@@ -57,7 +57,7 @@
     (set-frame-font (font-spec :family english-font-name :size font-size) nil t)
     (set-fontset-font "fontset-default" 'han (font-spec :family chinese-font-name))))
 
-(when (display-graphic-p)
+(when (or (daemonp)(display-graphic-p))
   (change-font))
 ;; -FontFun
 
