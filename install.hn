@@ -1,0 +1,15 @@
+;; use hinote format
+;; @author: tabuyos
+;; @since: 1.0
+;; @time: 2021-06-26 21:17
+;; programing:
+
+;; GOLANG
+;; format golang code style
+go get -u golang.org/x/tools/cmd/goimports
+;; go to define
+go get -u github.com/rogpeppe/godef
+;; auto complete code
+go get -u github.com/nsf/gocode
+;; debug
+go get -u github.com/go-delve/delve/cmd/dlv
