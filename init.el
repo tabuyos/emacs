@@ -101,6 +101,9 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-theme)
 
 (require 'init-fonts)
+
+;; Programing Language
+(require 'init-go)
 ;; -LoadModules
 
 ;;; init.el ends here.
