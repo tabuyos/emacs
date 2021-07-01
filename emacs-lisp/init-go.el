@@ -15,20 +15,37 @@
 (use-package go-mode
   :ensure t
   :commands go-mode
-  :hook ((go-mode . lsp)
-	 (before-save . gofmt-before-save))
+  :bind (:map go-mode-map
+  	 ("C-c C-j" . godef-jump)
+  	 ("M-." . pop-tag-mark)
+  	 ("C-c C-f" . gofmt)
+  	 ("C-c C-k" . godoc)
+  	 ("C-c C-g" . go-goto-imports)
+  	 ("C-c C-d" . godef-describe)
+  	 ("C-c C-a" . go-import-add)
+  	 )
+  :hook ((before-save . gofmt-before-save))
   :config
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+  (use-package godoctor)
   (setq gofmt-command "goimports")
   )
 ;; -GoMode
 
-;; GoComplete-
-(use-package go-complete
-  :hook
-  ((completion-at-point-functions . go-complete-at-point)))
-(use-package go-autocomplete)
-;; -GoComplete
+;; ;; GoComplete-
+;; (use-package go-complete
+;;   :hook
+;;   ((completion-at-point-functions . go-complete-at-point)))
+;; (use-package go-autocomplete)
+;; ;; -GoComplete
+
+;; ;; FlycheckGometailinter-
+;; (use-package flycheck-gometalinter
+;;   :ensure t
+;;   :config
+;;   (progn
+;;     (flycheck-gometalinter-setup)))
+;; ;; -FlycheckGometailinter
 
 (provide 'init-go)
 ;;; init-fonts.el ends here.

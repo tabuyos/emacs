@@ -11,6 +11,7 @@
 *.~undo-tree
 
 # Emacs Lisp
+site-elisp
 auto-save-list/
 server/
 elpa/
@@ -34,6 +35,7 @@ custom-set-variables.el
 tramp
 places
 recentf
+*.dat
 
 # user customize ignore files
 !.gitignore
