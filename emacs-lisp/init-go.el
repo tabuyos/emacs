@@ -11,6 +11,24 @@
 ;;
 ;;; Code:
 
+;; GoMode-
+(use-package go-mode
+  :ensure t
+  :commands go-mode
+  :hook ((go-mode . lsp)
+	 (before-save . gofmt-before-save))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+  (setq gofmt-command "goimports")
+  )
+;; -GoMode
+
+;; GoComplete-
+(use-package go-complete
+  :hook
+  ((completion-at-point-functions . go-complete-at-point)))
+(use-package go-autocomplete)
+;; -GoComplete
 
 (provide 'init-go)
-;;; init-fonts.el ends here
+;;; init-fonts.el ends here.

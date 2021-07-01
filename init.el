@@ -103,6 +103,10 @@ If you experience freezing, decrease this, otherwise increase it.")
 (require 'init-fonts)
 
 ;; Programing Language
+(require 'init-awesome-pair)
+
+(require 'init-programming)
+
 (require 'init-go)
 ;; -LoadModules
 

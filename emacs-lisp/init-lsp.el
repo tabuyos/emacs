@@ -6,7 +6,7 @@
 ;; LSPMode-
 (use-package lsp-mode
   :defer t
-  :commands lsp
+  :commands (lsp lsp-deferred)
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
@@ -16,15 +16,16 @@
   :bind
   (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook
-  ((java-mode
-    python-mode
-    go-modejs-mode
-    js2-mode
-    typescript-mode
-    web-mode
-    c-mode
-    c++-mode
-    objc-mode) . lsp))
+  ((java-mode .lsp)
+   (python-mode . lsp)
+   (go-modejs-mode . lsp)
+   (js2-mode . lsp)
+   (typescript-mode . lsp)
+   (web-mode . lsp)
+   (c-mode . lsp)
+   (c++-mode . lsp)
+   (objc-mode . lsp)
+   (go-mode . lsp-deferred))
 ;; -LSPMode
 
 ;; LSPUI-
