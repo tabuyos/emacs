@@ -11,7 +11,6 @@
 *.~undo-tree
 
 # Emacs Lisp
-site-elisp
 auto-save-list/
 server/
 elpa/
