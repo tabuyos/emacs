@@ -102,7 +102,11 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-fonts)
 
+(require 'init-shortcut)
+
 ;; Programing Language
+(require 'init-lsp)
+
 (require 'init-awesome-pair)
 
 ;; (require 'init-programming)

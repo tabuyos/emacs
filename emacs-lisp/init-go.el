@@ -24,28 +24,35 @@
   	 ("C-c C-d" . godef-describe)
   	 ("C-c C-a" . go-import-add)
   	 )
-  :hook ((before-save . gofmt-before-save))
+  :hook (
+  	(go-mode . lsp-deferred)
+  	(before-save . gofmt-before-save))
   :config
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+  (setq-default tab-width 2)
   (use-package godoctor)
+	(lsp-completion-mode 1)
   (setq gofmt-command "goimports")
   )
 ;; -GoMode
 
-;; ;; GoComplete-
-;; (use-package go-complete
-;;   :hook
-;;   ((completion-at-point-functions . go-complete-at-point)))
-;; (use-package go-autocomplete)
-;; ;; -GoComplete
+;; GoComplete-
+(use-package go-complete
+  :hook
+  ((completion-at-point-functions . go-complete-at-point)))
+(use-package go-autocomplete)
+;; -GoComplete
 
-;; ;; FlycheckGometailinter-
-;; (use-package flycheck-gometalinter
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     (flycheck-gometalinter-setup)))
-;; ;; -FlycheckGometailinter
+;; FlycheckGometailinter-
+(use-package flycheck-gometalinter
+  :ensure t
+  :config
+  (progn
+    (flycheck-gometalinter-setup)))
+;; -FlycheckGometailinter
+
+(use-package go-playground
+	:ensure t)
 
 (provide 'init-go)
 ;;; init-fonts.el ends here.

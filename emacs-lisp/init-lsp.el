@@ -13,6 +13,11 @@
   (lsp-file-watch-threshold 2000)
   (read-process-output-max (* 1024 1024))
   (lsp-eldoc-hook nil)
+  (lsp-enable-snippet t)
+  (lsp-keep-workspace-alive t)
+  (lsp-enable-xref t)
+  (lsp-enable-imenu t)
+  (lsp-enable-completion-at-point nil)
   :bind
   (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook
@@ -25,7 +30,7 @@
    (c-mode . lsp)
    (c++-mode . lsp)
    (objc-mode . lsp)
-   (go-mode . lsp-deferred))
+   (go-mode . lsp-deferred)))
 ;; -LSPMode
 
 ;; LSPUI-
