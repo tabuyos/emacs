@@ -32,20 +32,25 @@
   )
 ;; -GoMode
 
-;; ;; GoComplete-
-;; (use-package go-complete
-;;   :hook
-;;   ((completion-at-point-functions . go-complete-at-point)))
-;; (use-package go-autocomplete)
-;; ;; -GoComplete
+;; GoComplete-
+(use-package go-complete
+  :hook
+  ((completion-at-point-functions . go-complete-at-point)))
+(use-package go-autocomplete)
+;; -GoComplete
 
-;; ;; FlycheckGometailinter-
-;; (use-package flycheck-gometalinter
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     (flycheck-gometalinter-setup)))
-;; ;; -FlycheckGometailinter
+;; FlycheckGometailinter-
+(use-package flycheck-gometalinter
+  :ensure t
+  :config
+  (progn
+    (flycheck-gometalinter-setup)))
+;; -FlycheckGometailinter
+
+;; GoDLV-
+(use-package go-dlv
+  :ensure t)
+;; -GoDLV
 
 (provide 'init-go)
 ;;; init-fonts.el ends here.
