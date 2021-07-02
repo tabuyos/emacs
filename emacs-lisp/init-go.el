@@ -51,8 +51,15 @@
     (flycheck-gometalinter-setup)))
 ;; -FlycheckGometailinter
 
+;; GoPlayground-
 (use-package go-playground
 	:ensure t)
+;; -GoPlayground
+
+;; GoDLV-
+(use-package go-dlv
+  :ensure t)
+;; -GoDLV
 
 (provide 'init-go)
 ;;; init-fonts.el ends here.
