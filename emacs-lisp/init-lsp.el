@@ -17,7 +17,7 @@
   (lsp-keep-workspace-alive t)
   (lsp-enable-xref t)
   (lsp-enable-imenu t)
-  (lsp-enable-completion-at-point nil)
+  (lsp-enable-completion-at-point t)
   :bind
   (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook
@@ -30,7 +30,10 @@
    (c-mode . lsp)
    (c++-mode . lsp)
    (objc-mode . lsp)
-   (go-mode . lsp-deferred)))
+   (go-mode . lsp-deferred)
+	 ;; (before-save . lsp-format-buffer)
+	 ;; (before-save . lsp-organize-imports)
+	 ))
 ;; -LSPMode
 
 ;; LSPUI-

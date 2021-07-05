@@ -1,6 +1,14 @@
-;;; package --- tabuyos-init --- init-treemacs.el
+;;; -*- coding: utf-8 -*-
+;;; init-treemacs.el
+;;
+;; @autor: tabuyos
+;; @since: 1.0
+;; @date: 2021-07-04
+;;
 ;;; Commentary:
+;;
 ;; This is initial configuration for treemacs.
+;;
 ;;; Code:
 
 ;; TreemacsPackage-
@@ -65,5 +73,4 @@
 ;; -TreeProject
 
 (provide 'init-treemacs)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-treemacs.el ends here

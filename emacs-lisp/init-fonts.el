@@ -34,38 +34,63 @@
   (let (available-font-list)
     (dolist (font-name pending-check-font-list)
       (when (member font-name (font-family-list))
-	(push font-name available-font-list)))
+				(push font-name available-font-list)))
     (setq available-font-list (nreverse available-font-list))))
 
 (defun te/change-font ()
   "Documentation."
   (interactive)
-  (let* (english-font-name chinese-font-name font-size ignore-case)
+  (let* (english-font-name
+				 chinese-font-name
+				 font-size ignore-case
+				 efn
+				 cfn)
     (setq ignore-case completion-ignore-case
-	  completion-ignore-case t)
+					completion-ignore-case t)
     ;; check available font of english
     (when (not te/available-english-font-list)
       (setq te/available-english-font-list (te/check-available-font te/default-font-list)))
     ;; check available font fo chinese
     (when (not te/available-chinese-font-list)
       (setq te/available-chinese-font-list (te/check-available-font te/chinese-font-list)))
-    
+
+		(setq efn (car te/available-english-font-list))
+		(setq cfn (car te/available-chinese-font-list))
+
     (if (not te/available-english-font-list)
-	(message "No english fonts available, check your font was add into fonts' folder and try again.")
+				(message "No english fonts available, check your font was add into fonts' folder and try again.")
       (if (called-interactively-p 'interactive)
-	  (setq english-font-name (assoc-string (completing-read "What english font to use? " te/available-english-font-list (lambda (x) x)) te/available-english-font-list)
-		chinese-font-name (assoc-string (completing-read "What chinese font to use? " te/available-chinese-font-list (lambda (x) x)) te/available-chinese-font-list)
-		font-size (read-number "Font size: " te/default-font-size))
-	(setq english-font-name (car te/available-english-font-list)
-	      chinese-font-name (car te/available-chinese-font-list)
-	      font-size te/default-font-size)))
+					(setq english-font-name (assoc-string
+																	 (completing-read
+																		(concat "What english font to use(default " efn ")? ")
+																		te/available-english-font-list
+																		(lambda (x) x)
+																		nil
+																		nil
+																		nil
+																		efn)
+																	 te/available-english-font-list)
+								chinese-font-name (assoc-string
+																	 (completing-read
+																		(concat "What chinese font to use(default " cfn ")? ")
+																		te/available-chinese-font-list
+																		(lambda (x) x)
+																		nil
+																		nil
+																		nil
+																		cfn)
+																	 te/available-chinese-font-list)
+								font-size (read-number "Font size: " te/default-font-size))
+				(setq english-font-name (car te/available-english-font-list)
+							chinese-font-name (car te/available-chinese-font-list)
+							font-size te/default-font-size)))
     (setq completion-ignore-case ignore-case)
     (if (integerp font-size)
-	(setq font-size (/ (* 3 font-size) 4.0)))
+				(setq font-size (/ (* 3 font-size) 4.0)))
     (set-frame-font (font-spec :family english-font-name :size font-size) nil t)
     (set-fontset-font "fontset-default" 'han (font-spec :family chinese-font-name))))
 
-(when (display-graphic-p)
+(when (or (display-graphic-p))
   (te/change-font))
 ;; -FontFun
 

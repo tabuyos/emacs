@@ -86,5 +86,10 @@
                      verilog-mode))))
 ;; -AutoComplete
 
+;; MultipleCursors-
+(use-package multiple-cursors
+  :ensure t)
+;; -multipleCursors
+
 (provide 'init-programming)
 ;;; init-fonts.el ends here

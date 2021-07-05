@@ -1,6 +1,14 @@
-;;; package --- tabuyos-init --- init-window-numbering.el
+;;; -*- coding: utf-8 -*-
+;;; init-window-numbering.el
+;;
+;; @autor: tabuyos
+;; @since: 1.0
+;; @date: 2021-07-04
+;;
 ;;; Commentary:
+;;
 ;; This is initial configuration for window number.
+;;
 ;;; Code:
 
 ;; WindowNumbering-
@@ -11,5 +19,4 @@
 ;; -WindowNumbering
 
 (provide 'init-window-numbering)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-window-numbering.el ends here
+;;; init-window-numbering.el ends here.

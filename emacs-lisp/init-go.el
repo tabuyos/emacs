@@ -23,15 +23,18 @@
   	 ("C-c C-g" . go-goto-imports)
   	 ("C-c C-d" . godef-describe)
   	 ("C-c C-a" . go-import-add)
+		 ("C-c C-c" . go-run)
   	 )
-  :hook (
-  	(go-mode . lsp-deferred)
-  	(before-save . gofmt-before-save))
+  :hook ((go-mode . lsp-deferred)
+				 ;; use goimports for format go code
+  			 ;; (before-save . gofmt-before-save)
+				 (before-save . lsp-format-buffer)
+				 (before-save . lsp-organize-imports)
+				 )
   :config
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
   (setq-default tab-width 2)
   (use-package godoctor)
-	(lsp-completion-mode 1)
   (setq gofmt-command "goimports")
   )
 ;; -GoMode

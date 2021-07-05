@@ -104,6 +104,10 @@ If you experience freezing, decrease this, otherwise increase it.")
 
 (require 'init-shortcut)
 
+(require 'init-treemacs)
+
+(require 'init-window-numbering)
+
 ;; Programing Language
 (require 'init-lsp)
 
@@ -112,6 +116,10 @@ If you experience freezing, decrease this, otherwise increase it.")
 ;; (require 'init-programming)
 
 (require 'init-go)
+
+(require 'init-startup)
+
+(require 'init-alias)
 ;; -LoadModules
 
 ;;; init.el ends here.

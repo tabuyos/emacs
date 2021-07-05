@@ -213,6 +213,8 @@
 (line-number-mode)
 ;; open column number mode.
 (column-number-mode)
+;; set tab-width
+(setq-default tab-width 2)
 ;; -UserProfile
 
 (provide 'init-edit)
