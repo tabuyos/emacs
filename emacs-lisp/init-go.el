@@ -28,8 +28,11 @@
   :hook ((go-mode . lsp-deferred)
 				 ;; use goimports for format go code
   			 ;; (before-save . gofmt-before-save)
-				 (before-save . lsp-format-buffer)
-				 (before-save . lsp-organize-imports)
+				 (before-save . (lambda ()
+													(if (eq major-mode 'go-mode)
+															(progn
+																(lsp-format-buffer)
+																(lsp-organize-imports)))))
 				 )
   :config
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
