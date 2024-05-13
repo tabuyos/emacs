@@ -1,0 +1,39 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
+
+# Emacs Lisp
+auto-save-list/
+server/
+elpa/
+eshell/
+url/
+.cache/
+.extension/
+snippets/
+elpy/
+transient/
+eclipse.jdt.ls/
+packages
+etc/
+early-init-do-not-edit/
+.emacs.desktop
+.emacs.desktop.lock
+.dap-breakpoints
+.lsp-session-v1
+.last-package-update-day
+custom-set-variables.el
+tramp
+places
+recentf
+*.dat
+temp
+.DS_Store
