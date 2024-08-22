@@ -20,9 +20,7 @@
 (setq frame-inhibit-implied-resize t)
 
 (setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
+      '((:eval (lim-simple-frame-title-format))))
 
 (setq initial-scratch-message nil
       inhibit-startup-message t
@@ -60,6 +58,6 @@
                   ;; vc-handled-backends lim--vc-handled-backends
                   )))
 
-(add-hook 'after-init-hook (lambda () (set-frame-name "home")))
+;; (add-hook 'after-init-hook (lambda () (set-frame-name "home")))
 
 (provide 'early-init)

@@ -13,6 +13,7 @@
 ;;; Code:
 
 (require 'lim-helper)
+(require 'lim-project)
 
 (defun lim-simple--mark (bounds)
   "Mark between BOUNDS as a cons cell of beginning and end positions."
@@ -25,6 +26,24 @@
   (let ((current-point (point)))
     (funcall fn args)
     (goto-char current-point)))
+
+(defun lim-simple-frame-title-format--file ()
+  "Frame title format."
+  (if (buffer-file-name)
+      (abbreviate-file-name (buffer-file-name))
+    "%b"))
+
+(defun lim-simple-frame-title-format--project ()
+  "Frame title format."
+  (if (project-current)
+      (project-name (project-current))
+    "home"))
+
+(defun lim-simple-frame-title-format ()
+  "Frame title format."
+  ;; (concat (lim-simple-frame-title-format--project) ": " (lim-simple-frame-title-format--file))
+  (lim-simple-frame-title-format--project)
+  )
 
 ;;;###autoload
 (defun lim-simple-switch-to-minibuffer-window ()

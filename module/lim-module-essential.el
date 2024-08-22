@@ -230,13 +230,13 @@
           (border-width . 0)
           (no-special-glyphs . t))))
 
-(use-package server
-  :ensure nil
-  :defer 1
-  :config
-  (setq server-client-instructions nil)
-  (unless (server-running-p)
-    (server-start)))
+;; (use-package server
+;;   :ensure nil
+;;   :defer 1
+;;   :config
+;;   (setq server-client-instructions nil)
+;;   (unless (server-running-p)
+;;     (server-start)))
 
 (use-package goto-chg
   :bind
@@ -286,7 +286,7 @@
    ("l" . vundo-forward))
   :config
   (setq vundo-compact-display t)
-  
+
   (with-eval-after-load 'pulsar
     (add-hook 'vundo-post-exit-hook #'pulsar-pulse-line-green)))
 

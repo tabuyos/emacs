@@ -301,7 +301,7 @@ the cdr value of the first element in the stack."
      :mouse-drag-region (mouse-drag-region "Drag Region")
      :mouse-set-region (mouse-set-region "Set Region")
      :mwheel-scroll (mwheel-scroll "Point")
-     
+
      :hs-toggle (hs-toggle-hiding "HS Toggle")
      :hs-hide-all (hs-hide-all "HS Hide All")
      :hs-show-all (hs-show-all "HS Show All")
@@ -450,10 +450,10 @@ the cdr value of the first element in the stack."
      :body-z ((limhydragt 'lim-hydra-z/body) "(Z)eta")
 
      :body-c-cap ((limhydragt 'lim-hydra-c-cap/body) "C-A-P")
-     
+
      :body-s-es ((limhydragt 'lim-hydra-s-es/body) "Enhance Search")
      :body-s-find ((limhydragt 'lim-hydra-s-find/body) "Find")
-     
+
      :body-m-ai ((limhydragt 'lim-hydra-m-ai/body) "AI")
      :body-m-consult ((limhydragt 'lim-hydra-m-consult/body) "Consult Navigate")
      :body-m-describe ((limhydragt 'lim-hydra-m-describe/body) "Describe")
@@ -614,7 +614,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :hs-hide-all "f")
      ,(limhydrab :hs-show-all "s")
      ,(limhydrab :ctb "l"))
-    
+
     "To"
     (,(limhydrab :body-c "c" :exit t)
      ,(limhydrab :body-g "g" :exit t)
@@ -667,7 +667,7 @@ the cdr value of the first element in the stack."
     (,(limhydrabk :x-mark "x" :exit t)
      ,(limhydrabk :c-mark "z" :exit t)
      ,(limhydrabk :mark "SPC" :exit t))
-    
+
     "To"
     (,(limhydrab :body-m-ai "a" :exit t)
      ,(limhydrab :body-m-buffer "b" :exit t)
@@ -737,7 +737,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :body-r "r" :exit t)
      ,(limhydrab :body-t "t" :exit t)
      ,(limhydrab :body-x "x" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -872,7 +872,7 @@ the cdr value of the first element in the stack."
     (,(limhydrab :window-ace-swap "S")
      ,(limhydrab :window-swap-left "J")
      ,(limhydrab :window-swap-right "K")
-     
+
      ,(limhydrab :window-swap-up "I"))
 
     "Moving"
@@ -935,7 +935,7 @@ the cdr value of the first element in the stack."
   `("GPT"
     (,(limhydrab :ai-gptel "c" :exit t)
      ,(limhydrab :ai-gptel-send "s" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -1071,7 +1071,7 @@ the cdr value of the first element in the stack."
     (,(limhydrab :kill "k" :exit t)
      ,(limhydrab :kill-current "K" :exit t)
      ,(limhydrab :rename "r" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -1083,14 +1083,14 @@ the cdr value of the first element in the stack."
     (,(limhydrab :project-switch "p" :exit t)
      ,(limhydrab :project-switch-buffer "b" :exit t)
      ,(limhydrab :project-compile "c" :exit t)
-     ,(limhydrab :project-forget "d" :exit t)
+     ,(limhydrab :project-forget "d")
      ,(limhydrab :project-find "f" :exit t))
 
     "Dired"
     (,(limhydrab :dired-sidebar-toggle "e" :exit t)
      ,(limhydrab :dired-sidebar-show-selected-file "s" :exit t)
      ,(limhydrab :dired-sidebar-jump "g" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -1104,7 +1104,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :embark-collect "c" :exit t)
      ,(limhydrab :embark-export "e" :exit t)
      ,(limhydrab :embark-dwim ";" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -1118,7 +1118,7 @@ the cdr value of the first element in the stack."
 
     "Project"
     (,(limhydrab :project-switch "p" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -1156,7 +1156,7 @@ the cdr value of the first element in the stack."
   `("Management"
     (,(limhydrab :cap "p" :exit t)
      ,(limhydrab :cap-tag "t" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))

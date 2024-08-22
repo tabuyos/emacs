@@ -112,9 +112,7 @@
 (setq frame-inhibit-implied-resize t)
 
 (setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
+      '((:eval (lim-simple-frame-title-format))))
 
 (setq initial-scratch-message nil
       inhibit-startup-message t
@@ -158,7 +156,7 @@
                   ;; vc-handled-backends lim--vc-handled-backends
                   )))
 
-(add-hook 'after-init-hook (lambda () (set-frame-name "home")))
+;; (add-hook 'after-init-hook (lambda () (set-frame-name "home")))
 
 (provide 'early-init)
 #+end_src
@@ -646,7 +644,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
 
 #+begin_src emacs-lisp :tangle module/lim-module-appearance.el :mkdirp yes
 (use-package spacious-padding
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :hook (after-init . spacious-padding-mode)
   :init
   (setq spacious-padding-widths
@@ -699,7 +697,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
 #+begin_src emacs-lisp :tangle module/lim-module-appearance.el :mkdirp yes
 (use-package cursory
   :demand t
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :config
   (setq cursory-presets
         '((box
@@ -748,7 +746,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
 
 #+begin_src emacs-lisp :tangle module/lim-module-appearance.el :mkdirp yes
 (use-package fontaine
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :init
   :hook
   ((after-init . fontaine-mode)
@@ -800,7 +798,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
   :ensure nil
   :config
   (require 'project)
-  
+
   (setq mode-line-compact nil)
   (setq mode-line-right-align-edge 'right-margin)
   (setq-default mode-line-format
@@ -825,7 +823,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
                   ;; lim-modeline-notmuch-indicator
                   mode-line-format-right-align
                   lim-modeline-flymake
-                  project-mode-line-format
+                  ;; project-mode-line-format
                   lim-modeline-misc-info
                   )))
 #+end_src
@@ -905,7 +903,8 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
 #+begin_src emacs-lisp :tangle module/lim-module-appearance.el :mkdirp yes
 (use-package page-break-lines
   :diminish
-  :hook (after-init . global-page-break-lines-mode))
+  ;; :hook (after-init . global-page-break-lines-mode)
+  )
 #+end_src
 
 *** 导出模块
@@ -1286,13 +1285,13 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
 *** Emacs 服务器
 
 #+begin_src emacs-lisp :tangle module/lim-module-essential.el :mkdirp yes
-(use-package server
-  :ensure nil
-  :defer 1
-  :config
-  (setq server-client-instructions nil)
-  (unless (server-running-p)
-    (server-start)))
+;; (use-package server
+;;   :ensure nil
+;;   :defer 1
+;;   :config
+;;   (setq server-client-instructions nil)
+;;   (unless (server-running-p)
+;;     (server-start)))
 #+end_src
 
 *** 改动跳转
@@ -1367,7 +1366,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
    ("l" . vundo-forward))
   :config
   (setq vundo-compact-display t)
-  
+
   (with-eval-after-load 'pulsar
     (add-hook 'vundo-post-exit-hook #'pulsar-pulse-line-green)))
 #+end_src
@@ -2871,7 +2870,7 @@ This function makes sure that dates are aligned for easy reading."
   (ediff-merge-split-window-function 'split-window-horizontally))
 
 (use-package git-gutter
-  :defer t
+  ;; :defer t
   :config
   (global-git-gutter-mode 1))
 
@@ -2893,7 +2892,8 @@ This function makes sure that dates are aligned for easy reading."
   (setq blamer-idle-time 0.3)
   (setq blamer-min-offset 80)
 
-  (global-blamer-mode 1))
+  ;; (global-blamer-mode 1)
+  )
 
 (use-package git-modes
   :mode ("/.dockerignore\\'" . gitignore-mode))
@@ -2945,7 +2945,9 @@ This function makes sure that dates are aligned for easy reading."
 (use-package lim-project
   :ensure nil
   :autoload (lim-project-root)
-  :hook (after-init . global-lim-project-mode))
+  :hook (after-init . global-lim-project-mode)
+  :init
+  (setq project-find-functions nil))
 #+end_src
 
 *** 加载 lim-treesit 库
@@ -3046,7 +3048,7 @@ This function makes sure that dates are aligned for easy reading."
          (when (byte-code-function-p bytecode)
            (funcall bytecode))))
      (apply old-fn args)))
-  
+
   (advice-add (if (progn (require 'json)
                          (fboundp 'json-parse-buffer))
                   'json-parse-buffer
@@ -3072,7 +3074,7 @@ This function makes sure that dates are aligned for easy reading."
             (message "Using emacs-lsp-booster for %s!" orig-result)
             (cons "emacs-lsp-booster" orig-result))
         orig-result)))
-  
+
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
 (use-package lsp-mode
@@ -3087,7 +3089,7 @@ This function makes sure that dates are aligned for easy reading."
     (add-hook 'orderless-style-dispatchers #'lim-orderless-dispatch-flex-first nil t)
     ;; Optionally configure the cape-capf-buster.
     (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
-  
+
   :hook
   (lsp-completion-mode . lim/lsp-mode-setup-completion))
 
@@ -3121,8 +3123,8 @@ This function makes sure that dates are aligned for easy reading."
   (setq lsp-bridge-org-babel-lang-list nil)
   :config
   (setq lsp-bridge-enable-log t)
-  (setq lsp-bridge-user-langserver-dir (f-join (lim-project-root) lim-project-identifier "lspserver"))
-  (setq lsp-bridge-user-multiserver-dir (f-join (lim-project-root) lim-project-identifier "multilspserver"))
+  ;; (setq lsp-bridge-user-langserver-dir (f-join (lim-project-root) lim-project-identifier "lspserver"))
+  ;; (setq lsp-bridge-user-multiserver-dir (f-join (lim-project-root) lim-project-identifier "multilspserver"))
   (setq lsp-bridge-enable-hover-diagnostic t))
 #+end_src
 
@@ -3629,7 +3631,7 @@ This function makes sure that dates are aligned for easy reading."
   :hook (sql-mode . lim/sql-ts-support)
   :init
   (setq sql-mysql-options '("--protocol=tcp" "--prompt=" "--disable-pager"))
-  
+
   (defun lim/sql-ts-support ()
     (treesit-parser-create 'sql)
     (treesit-major-mode-setup)))
@@ -3983,6 +3985,7 @@ This is in contrast to merely setting it to 0."
 ;;; Code:
 
 (require 'lim-helper)
+(require 'lim-project)
 
 (defun lim-simple--mark (bounds)
   "Mark between BOUNDS as a cons cell of beginning and end positions."
@@ -3995,6 +3998,24 @@ This is in contrast to merely setting it to 0."
   (let ((current-point (point)))
     (funcall fn args)
     (goto-char current-point)))
+
+(defun lim-simple-frame-title-format--file ()
+  "Frame title format."
+  (if (buffer-file-name)
+      (abbreviate-file-name (buffer-file-name))
+    "%b"))
+
+(defun lim-simple-frame-title-format--project ()
+  "Frame title format."
+  (if (project-current)
+      (project-name (project-current))
+    "home"))
+
+(defun lim-simple-frame-title-format ()
+  "Frame title format."
+  ;; (concat (lim-simple-frame-title-format--project) ": " (lim-simple-frame-title-format--file))
+  (lim-simple-frame-title-format--project)
+  )
 
 ;;;###autoload
 (defun lim-simple-switch-to-minibuffer-window ()
@@ -6028,7 +6049,7 @@ the cdr value of the first element in the stack."
      :mouse-drag-region (mouse-drag-region "Drag Region")
      :mouse-set-region (mouse-set-region "Set Region")
      :mwheel-scroll (mwheel-scroll "Point")
-     
+
      :hs-toggle (hs-toggle-hiding "HS Toggle")
      :hs-hide-all (hs-hide-all "HS Hide All")
      :hs-show-all (hs-show-all "HS Show All")
@@ -6177,10 +6198,10 @@ the cdr value of the first element in the stack."
      :body-z ((limhydragt 'lim-hydra-z/body) "(Z)eta")
 
      :body-c-cap ((limhydragt 'lim-hydra-c-cap/body) "C-A-P")
-     
+
      :body-s-es ((limhydragt 'lim-hydra-s-es/body) "Enhance Search")
      :body-s-find ((limhydragt 'lim-hydra-s-find/body) "Find")
-     
+
      :body-m-ai ((limhydragt 'lim-hydra-m-ai/body) "AI")
      :body-m-consult ((limhydragt 'lim-hydra-m-consult/body) "Consult Navigate")
      :body-m-describe ((limhydragt 'lim-hydra-m-describe/body) "Describe")
@@ -6341,7 +6362,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :hs-hide-all "f")
      ,(limhydrab :hs-show-all "s")
      ,(limhydrab :ctb "l"))
-    
+
     "To"
     (,(limhydrab :body-c "c" :exit t)
      ,(limhydrab :body-g "g" :exit t)
@@ -6394,7 +6415,7 @@ the cdr value of the first element in the stack."
     (,(limhydrabk :x-mark "x" :exit t)
      ,(limhydrabk :c-mark "z" :exit t)
      ,(limhydrabk :mark "SPC" :exit t))
-    
+
     "To"
     (,(limhydrab :body-m-ai "a" :exit t)
      ,(limhydrab :body-m-buffer "b" :exit t)
@@ -6464,7 +6485,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :body-r "r" :exit t)
      ,(limhydrab :body-t "t" :exit t)
      ,(limhydrab :body-x "x" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6599,7 +6620,7 @@ the cdr value of the first element in the stack."
     (,(limhydrab :window-ace-swap "S")
      ,(limhydrab :window-swap-left "J")
      ,(limhydrab :window-swap-right "K")
-     
+
      ,(limhydrab :window-swap-up "I"))
 
     "Moving"
@@ -6662,7 +6683,7 @@ the cdr value of the first element in the stack."
   `("GPT"
     (,(limhydrab :ai-gptel "c" :exit t)
      ,(limhydrab :ai-gptel-send "s" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6798,7 +6819,7 @@ the cdr value of the first element in the stack."
     (,(limhydrab :kill "k" :exit t)
      ,(limhydrab :kill-current "K" :exit t)
      ,(limhydrab :rename "r" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6810,14 +6831,14 @@ the cdr value of the first element in the stack."
     (,(limhydrab :project-switch "p" :exit t)
      ,(limhydrab :project-switch-buffer "b" :exit t)
      ,(limhydrab :project-compile "c" :exit t)
-     ,(limhydrab :project-forget "d" :exit t)
+     ,(limhydrab :project-forget "d")
      ,(limhydrab :project-find "f" :exit t))
 
     "Dired"
     (,(limhydrab :dired-sidebar-toggle "e" :exit t)
      ,(limhydrab :dired-sidebar-show-selected-file "s" :exit t)
      ,(limhydrab :dired-sidebar-jump "g" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6831,7 +6852,7 @@ the cdr value of the first element in the stack."
      ,(limhydrab :embark-collect "c" :exit t)
      ,(limhydrab :embark-export "e" :exit t)
      ,(limhydrab :embark-dwim ";" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6845,7 +6866,7 @@ the cdr value of the first element in the stack."
 
     "Project"
     (,(limhydrab :project-switch "p" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -6883,7 +6904,7 @@ the cdr value of the first element in the stack."
   `("Management"
     (,(limhydrab :cap "p" :exit t)
      ,(limhydrab :cap-tag "t" :exit t))
-    
+
     "Help"
     (,(limhydrab :root "," :exit t)
      ,(limhydrab :go-back "." :exit t))
@@ -7220,12 +7241,17 @@ CPR: Customize Project Root")
 (defun lim-project-try-cpr (dir)
   "Determine if DIR is a non-VC project.
 DIR must include a .cpr file to be considered a project."
-  (if-let ((root (locate-dominating-file dir lim-project-identifier)))
-      (cons 'cpr root)))
+  (if-let* ((root (locate-dominating-file dir lim-project-identifier))
+            (name (file-name-nondirectory (directory-file-name root))))
+      (list 'cpr name root)))
+
+(cl-defmethod project-name ((project (head cpr)))
+  "Return root directory of current PROJECT."
+  (nth 1 project))
 
 (cl-defmethod project-root ((project (head cpr)))
   "Return root directory of current PROJECT."
-  (cdr project))
+  (nth 2 project))
 
 (defun lim-project-create ()
   "Create new project."
@@ -7249,10 +7275,15 @@ DIR must include a .cpr file to be considered a project."
   (project-root (project-current t)))
 
 ;;;###autoload
+(defun lim-project-name ()
+  "Return current project name."
+  (project-name (project-current t)))
+
+;;;###autoload
 (defun lim-project-mark (dir)
   "Mark the project.
 
-Will generate .cpr directory."
+Will generate .cpr directory in DIR."
   (interactive
    (list (read-directory-name
           "Select Directory." nil (or (project-root (project-current t)) default-directory)
@@ -7263,11 +7294,11 @@ Will generate .cpr directory."
   (let* ((do (y-or-n-p (concat "Mark: " dir)))
          (exsit (file-exists-p (expand-file-name lim-project-identifier dir))))
     (if (and do (not exsit))
-        (mkdir (expand-file-name ".cpr" dir)))))
+        (mkdir (expand-file-name lim-project-identifier dir)))))
 
 ;;;###autoload
 (define-minor-mode lim-project-mode
-  "Toggle lim-project-mode."
+  "Toggle `lim-project-mode'."
   :init-value nil
   :global nil
   :lighter nil

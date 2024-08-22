@@ -143,7 +143,7 @@
   (put 'lim/cursor-left-fringe-overlay-position 'overlay-arrow-bitmap 'lim/cursor-left-fringe-bitmap))
 
 (use-package spacious-padding
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :hook (after-init . spacious-padding-mode)
   :init
   (setq spacious-padding-widths
@@ -184,7 +184,7 @@
 
 (use-package cursory
   :demand t
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :config
   (setq cursory-presets
         '((box
@@ -227,7 +227,7 @@
   (kill-emacs . cursory-store-latest-preset))
 
 (use-package fontaine
-  :if (display-graphic-p)
+  ;; :if (display-graphic-p)
   :init
   :hook
   ((after-init . fontaine-mode)
@@ -275,7 +275,7 @@
   :ensure nil
   :config
   (require 'project)
-  
+
   (setq mode-line-compact nil)
   (setq mode-line-right-align-edge 'right-margin)
   (setq-default mode-line-format
@@ -300,7 +300,7 @@
                   ;; lim-modeline-notmuch-indicator
                   mode-line-format-right-align
                   lim-modeline-flymake
-                  project-mode-line-format
+                  ;; project-mode-line-format
                   lim-modeline-misc-info
                   )))
 
@@ -354,6 +354,7 @@
 
 (use-package page-break-lines
   :diminish
-  :hook (after-init . global-page-break-lines-mode))
+  ;; :hook (after-init . global-page-break-lines-mode)
+  )
 
 (provide 'lim-module-appearance)

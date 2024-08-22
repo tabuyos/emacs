@@ -22,12 +22,17 @@ CPR: Customize Project Root")
 (defun lim-project-try-cpr (dir)
   "Determine if DIR is a non-VC project.
 DIR must include a .cpr file to be considered a project."
-  (if-let ((root (locate-dominating-file dir lim-project-identifier)))
-      (cons 'cpr root)))
+  (if-let* ((root (locate-dominating-file dir lim-project-identifier))
+            (name (file-name-nondirectory (directory-file-name root))))
+      (list 'cpr name root)))
+
+(cl-defmethod project-name ((project (head cpr)))
+  "Return root directory of current PROJECT."
+  (nth 1 project))
 
 (cl-defmethod project-root ((project (head cpr)))
   "Return root directory of current PROJECT."
-  (cdr project))
+  (nth 2 project))
 
 (defun lim-project-create ()
   "Create new project."
@@ -51,10 +56,15 @@ DIR must include a .cpr file to be considered a project."
   (project-root (project-current t)))
 
 ;;;###autoload
+(defun lim-project-name ()
+  "Return current project name."
+  (project-name (project-current t)))
+
+;;;###autoload
 (defun lim-project-mark (dir)
   "Mark the project.
 
-Will generate .cpr directory."
+Will generate .cpr directory in DIR."
   (interactive
    (list (read-directory-name
           "Select Directory." nil (or (project-root (project-current t)) default-directory)
@@ -65,11 +75,11 @@ Will generate .cpr directory."
   (let* ((do (y-or-n-p (concat "Mark: " dir)))
          (exsit (file-exists-p (expand-file-name lim-project-identifier dir))))
     (if (and do (not exsit))
-        (mkdir (expand-file-name ".cpr" dir)))))
+        (mkdir (expand-file-name lim-project-identifier dir)))))
 
 ;;;###autoload
 (define-minor-mode lim-project-mode
-  "Toggle lim-project-mode."
+  "Toggle `lim-project-mode'."
   :init-value nil
   :global nil
   :lighter nil

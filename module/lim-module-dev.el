@@ -81,7 +81,7 @@
   (ediff-merge-split-window-function 'split-window-horizontally))
 
 (use-package git-gutter
-  :defer t
+  ;; :defer t
   :config
   (global-git-gutter-mode 1))
 
@@ -103,7 +103,8 @@
   (setq blamer-idle-time 0.3)
   (setq blamer-min-offset 80)
 
-  (global-blamer-mode 1))
+  ;; (global-blamer-mode 1)
+  )
 
 (use-package git-modes
   :mode ("/.dockerignore\\'" . gitignore-mode))
@@ -143,7 +144,9 @@
 (use-package lim-project
   :ensure nil
   :autoload (lim-project-root)
-  :hook (after-init . global-lim-project-mode))
+  :hook (after-init . global-lim-project-mode)
+  :init
+  (setq project-find-functions nil))
 
 (use-package lim-treesit :ensure nil)
 
@@ -226,7 +229,7 @@
          (when (byte-code-function-p bytecode)
            (funcall bytecode))))
      (apply old-fn args)))
-  
+
   (advice-add (if (progn (require 'json)
                          (fboundp 'json-parse-buffer))
                   'json-parse-buffer
@@ -252,7 +255,7 @@
             (message "Using emacs-lsp-booster for %s!" orig-result)
             (cons "emacs-lsp-booster" orig-result))
         orig-result)))
-  
+
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
 (use-package lsp-mode
@@ -267,7 +270,7 @@
     (add-hook 'orderless-style-dispatchers #'lim-orderless-dispatch-flex-first nil t)
     ;; Optionally configure the cape-capf-buster.
     (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
-  
+
   :hook
   (lsp-completion-mode . lim/lsp-mode-setup-completion))
 
@@ -297,8 +300,8 @@
   (setq lsp-bridge-org-babel-lang-list nil)
   :config
   (setq lsp-bridge-enable-log t)
-  (setq lsp-bridge-user-langserver-dir (f-join (lim-project-root) lim-project-identifier "lspserver"))
-  (setq lsp-bridge-user-multiserver-dir (f-join (lim-project-root) lim-project-identifier "multilspserver"))
+  ;; (setq lsp-bridge-user-langserver-dir (f-join (lim-project-root) lim-project-identifier "lspserver"))
+  ;; (setq lsp-bridge-user-multiserver-dir (f-join (lim-project-root) lim-project-identifier "multilspserver"))
   (setq lsp-bridge-enable-hover-diagnostic t))
 
 (use-package lim-lsp :ensure nil)
@@ -689,7 +692,7 @@
   :hook (sql-mode . lim/sql-ts-support)
   :init
   (setq sql-mysql-options '("--protocol=tcp" "--prompt=" "--disable-pager"))
-  
+
   (defun lim/sql-ts-support ()
     (treesit-parser-create 'sql)
     (treesit-major-mode-setup)))
