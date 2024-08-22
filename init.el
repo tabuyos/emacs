@@ -1,52 +1,47 @@
-;;; init.el --- The Emacs Initialization File Entry -*- lexical-binding: t; coding: utf-8; -*-
+(defun lim-loading-paths (&rest folders)
+  (dolist (folder folders)
+    (when (file-directory-p folder)
+      (let ((parent folder))
+        (unless (member parent load-path)
+          (add-to-list 'load-path parent))
+        (dolist (name (remove ".." (remove "." (directory-files parent))))
+          (let ((child (expand-file-name name parent)))
+            (when (file-directory-p child)
+              (unless (member child load-path)
+                (lim-loading-paths child))))))
+      )))
 
-;; Copyright (C) 2023 Tabuyos
+(defvar lim-module-dir
+  (expand-file-name "module" user-emacs-directory)
+  "Lim's initilize directory.")
 
-;; Author: Tabuyos <tabuyos@outlook.com>
-;; Maintainer: Tabuyos <tabuyos@outlook.com>
-;; Created: 2023/10/05
+(defvar lim-feature-dir
+  (expand-file-name "feature" user-emacs-directory)
+  "Lim's feature directory.")
 
-;;; Commentary:
+(defvar lim-customize-file
+  (expand-file-name "customizes.el" user-emacs-directory)
+  "Lim's customize file.")
 
-;; The Emacs Initialization Main File
+(lim-loading-paths lim-module-dir lim-feature-dir)
 
-;;; Code:
+;; (use-package benchmark-init
+;;   :hook
+;;   (after-init . benchmark-init/deactivate))
 
-(defun neuron/update-to-load-path (folder)
-  "Update FOLDER and it's subdirectories to `load-path'."
-  (let ((base folder))
-    (unless (member base load-path)
-      (add-to-list 'load-path base))
-    (dolist (f (directory-files base))
-      (let ((name (concat base "/" f)))
-        (when (and (file-directory-p name)
-                   (not (equal f ".."))
-                   (not (equal f ".")))
-          (unless (member base load-path)
-            (add-to-list 'load-path name)))))))
+;; (benchmark-init/activate)
 
-(neuron/update-to-load-path (expand-file-name "elisp" user-emacs-directory))
-
-(require 'init-constant)
-(require 'init-package)
-(require 'init-gui-frame)
-(require 'init-edit)
-(require 'init-theme)
-(require 'init-font)
-
-(require 'init-eglot)
-
-;; (require 'init-haskell)
-;; (require 'init-rust)
-
-(require 'init-treemacs)
-
-(require 'init-awesome-pair)
-
-(provide 'init)
-
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
-;; End:
-;;; init.el ends here
+;; Enable module
+(require 'lim-module-base)
+(require 'lim-module-package)
+(require 'lim-module-icon)
+(require 'lim-module-appearance)
+(require 'lim-module-essential)
+(require 'lim-module-hydra)
+(require 'lim-module-completion)
+(require 'lim-module-dired)
+(require 'lim-module-org)
+(require 'lim-module-window)
+(require 'lim-module-ai)
+(require 'lim-module-dev)
+(require 'lim-module-keybind)

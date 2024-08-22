@@ -37,3 +37,12 @@ recentf
 *.dat
 temp
 .DS_Store
+.persistent-scratch
+cursory-latest-state.eld
+customizes.el
+eln-cache/
+fontaine-latest-state.eld
+persistent-scratch/
+projects
+savehist
+tree-sitter/
