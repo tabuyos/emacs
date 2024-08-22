@@ -2120,6 +2120,7 @@ PS: 为什么不使用 ~default-family~ 字体? 主要是因为该字体在编�
   (add-to-list 'tempel-user-elements #'tempel-include))
 
 (use-package yasnippet
+  :diminish nil
   ;; :config
   ;; (yas-global-mode 1)
   )
@@ -2870,6 +2871,7 @@ This function makes sure that dates are aligned for easy reading."
   (ediff-merge-split-window-function 'split-window-horizontally))
 
 (use-package git-gutter
+  :diminish
   ;; :defer t
   :config
   (global-git-gutter-mode 1))

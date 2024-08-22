@@ -406,6 +406,7 @@
   (add-to-list 'tempel-user-elements #'tempel-include))
 
 (use-package yasnippet
+  :diminish nil
   ;; :config
   ;; (yas-global-mode 1)
   )

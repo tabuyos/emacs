@@ -81,6 +81,7 @@
   (ediff-merge-split-window-function 'split-window-horizontally))
 
 (use-package git-gutter
+  :diminish
   ;; :defer t
   :config
   (global-git-gutter-mode 1))
